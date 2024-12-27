@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/RecipeLogo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Express Eat</title>
+</head>
+<body>
+
+    <!--- Navigation Bar -->
+    <div class="header">
+        <nav class="nav-bar">
+            <img src="./img/Logo.png" class="brand-name">
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="menu-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>                             
+                </ul>
+            </div>
+        </nav>
+        <!-- Search Bar -->
+        <div class="title">Find a Recipe</div>
+        <div class="search-wrapper">
+            <div class="fa fa-search"></div>
+            <input type="text" name=""  id="search" placeholder="What do you want to eat?" onkeyup="search()">
+            <div class="fa fa-times" onclick="clearInput()" ></div>
+        </div>
+    </div>
+
+    <!-- Search Results -->
+        <div class="result">
+            <h1>Your Search Result: </h1>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="card-grid" >
+            <div class="food-list" id="food-list">
+                    <p id="none" style="display: none;">Sorry, the food you were looking for was not available.</p>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/aloo paratha.jpg">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Aloo Paratha </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="getRecipeDetails()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Pav bhaji.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Pav Bhaji</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get2ndRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Gjar ka halwa.jpg">
+                        </div>
+                        <div class="card-body" >
+                            <h3>Gajar Halwa</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get3rdRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Omelette.webp">
+                        </div>
+                        <div class="card-body" >
+                            <h3>Omelette</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get4thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Pizza.jpeg">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Pizza </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get5thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/samosas.jpeg">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Samosas </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get6thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/dal makhani.jpeg">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Dal makhani</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get7thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Burger.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Chicken Burger</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get8thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/rajma.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Rajma</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get9thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/pasta.jpg">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Pasta</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get10thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Potato-Breakfast-Skillet.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Potato Egg Skillet</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get11thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+            </div> 
+
+            <!--Ending of Main Content-->
+
+            <!--Recipe Details-->
+            <div class = "meal-detail" id="meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Aloo Paratha</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about"> Sometimes spelled Alu Paratha, this potato stuffed flatbread is a popular Indian breakfast that combines two of my favorite starches in a single delectable package. Crisp on the outside and tender on the inside, this humble meal is as comforting as a hug.  </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p> <br>½ to 1 teaspoon finely chopped green chillies (1 to 2 green chilies) or serrano peppers
+                            <br>¼ to ½ teaspoon punjabi garam masala powder or Garam Masala Powder
+                            <br>¼ to ½ teaspoon kashmiri red chilli powder or cayenne pepper or paprika (optional)
+                            <br>½ to 1 teaspoon dry mango powder (amchur powder) – or use lemon juice instead
+                            <br>salt according to your taste
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p>
+                            <br>Here's a concise summary of how to make Aloo Paratha, a popular Indian stuffed flatbread:
+
+                            <br>1. **Ingredients**:
+                               <br>- For the Dough: Whole wheat flour, water, salt, and oil.
+                               <br>- For the Filling: Boiled potatoes, spices (such as cumin, coriander powder, garam masala, and chili powder), chopped cilantro, and salt.
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Dough**: Knead the whole wheat flour with water, salt, and oil to form a smooth dough. Rest it for 20-30 minutes.
+                               <br>- **Filling**: Mash the boiled potatoes and mix with the spices, chopped cilantro, and salt.
+                            
+                            <br>3. **Making the Paratha**:
+                               <br>- Divide the dough into small balls.
+                               <br>- Roll each ball into a small disc.
+                               <br>- Place the potato filling in the center and fold the edges of the dough to cover the filling.
+                               <br>- Gently roll the stuffed dough into a flat circle.
+                            
+                            <br>4. **Cooking**:
+                               <br>- Heat a griddle or tawa and cook the rolled paratha on both sides, applying oil or ghee until golden brown.
+                            
+                            <br>5. **Serving**:
+                               <br>- Serve hot with butter, yogurt, or pickles.
+                            
+                            <br>Enjoy your delicious homemade Aloo Paratha!</p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/aloo paratha.jpg" alt = "">
+                      </div>
+                     
+                </div>
+            </div>
+            <div class = "second-meal-detail" id="second-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Pav Bhaji</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Paneer Pav Bhaji is a variation of the popular, traditional and classic Pav Bhaji. This variation of paneer pav bhaji is made with mixed vegetables, paneer, pav bhaji masala, spices and herbs. It makes for a filling snack that you can enjoy any time of the day.
+
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>½ cup vegetable oil
+
+                            <br>2 teaspoons chopped garlic
+                            
+                            <br>1 teaspoon finely chopped green chile peppers
+                            
+                            <br>1 cup chopped onions
+                            
+                            <br>2 teaspoons grated fresh ginger
+                            
+                            <br>1 cup chopped roma (plum) tomatoes
+                            
+                            <br>2 cups cauliflower, finely chopped
+                            
+                            <br>1 cup chopped cabbage
+                            
+                            <br>1 cup green peas
+                            
+                            <br>1 cup grated carrots
+                            
+                            <br>4 potatoes, boiled and mashed
+                            
+                            <br>3 tablespoons pav bhaji masala
+                            
+                            <br>salt to taste
+                            
+                            <br>1 tablespoon lemon juice
+                            
+                            <br>8 (2 inch square) dinner rolls
+                            
+                            <br>½ tablespoon butter
+                            
+                            <br>¼ cup finely chopped onion
+                            
+                            <br>1 tablespoon finely chopped green chile peppers
+                            
+                            <br>¼ cup chopped fresh cilantro
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a quick summary for making Pav Bhaji, a popular Indian street food:
+
+                            <br>1. **Ingredients**:
+                               <br>- For Bhaji: Potatoes, cauliflower, green peas, bell peppers, tomatoes, onions, ginger-garlic paste, butter, pav bhaji masala, red chili powder, turmeric, and salt.
+                               <br>- For Pav: Soft dinner rolls (pav), butter.
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Bhaji**: Boil and mash potatoes, cauliflower, and peas.
+                               <br>- **Base**: Sauté onions and ginger-garlic paste in butter until golden. Add chopped bell peppers and tomatoes, cook until soft.
+                            
+                            <br>3. **Cooking Bhaji**:
+                              <br> - Mix in pav bhaji masala, red chili powder, turmeric, and salt. 
+                              <br>- Add mashed vegetables and a bit of water, simmer for a few minutes. Mash again to combine everything.
+                            
+                            <br>4. **Toasting Pav**:
+                               <br>- Slather pav with butter and toast on a griddle until golden.
+                            
+                            <br>5. **Serving**:
+                               <br>- Serve hot bhaji garnished with chopped onions, cilantro, and a squeeze of lemon, alongside toasted pav.
+                            
+                            <br>Enjoy your delicious Pav Bhaji!
+                            </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Pav bhaji.webp" alt = "">
+                      </div>
+                     
+                </div>
+            </div>  
+            <div class = "third-meal-detail" id="third-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Gajar Halwa</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Making the popular Indian dessert known as Carrot Halwa (a.k.a. Gajar Ka Halwa in Hindi or Gajrela in Punjabi) is so simple when you use my detailed step-by-step guide and video! Whether you make it using the traditional stovetop method, or take some shortcuts by using milkmaid, khoya or the Instant Pot.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>1.5 kg carrots – approximate 9 cups tightly packed grated carrots
+                            <br>6 tablespoon ghee (clarified butter)
+                            <br>1.5 to 2 teaspoons cardamom powder or 8 to 9 green cardamoms – powdered in a mortar-pestle
+                            <br>1 tin sweetened condensed milk – I used nestle milkmaid, 400 grams
+                            <br>sugar as required, optional
+                            <br>⅓ cup cashews
+                            <br>⅓ cup golden raisins
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a brief summary of making Gajar Halwa, a traditional Indian dessert made from carrots:
+
+                            <br>1. **Ingredients**:
+                               <br>- Grated carrots
+                               <br>- Milk
+                               <br>- Sugar
+                               <br>- Ghee (clarified butter)
+                               <br>- Cardamom powder
+                               <br>- Nuts (like almonds and cashews)
+                               <br>- Raisins
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Grate Carrots**: Peel and grate fresh carrots.
+                            
+                            <br>3. **Cooking**:
+                               <br>- Heat ghee in a pan and add the grated carrots. Sauté for a few minutes.
+                               <br>- Pour in the milk and cook until the carrots are tender and the milk is mostly evaporated.
+                               <br>- Add sugar and continue to cook, stirring occasionally, until the mixture thickens.
+                               <br>- Add cardamom powder and mix well.
+                               <br>- In a separate small pan, lightly roast the nuts and raisins in a bit of ghee, then add them to the halwa.
+                            
+                            <br>4. **Serving**:
+                               <br>- Serve warm, garnished with more nuts if desired.
+                            
+                            <br>Enjoy your delicious and aromatic Gajar Halwa!
+                            </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Gjar ka halwa.jpg" alt = "">
+                      </div>
+                      <div></div>
+                        
+                    </div>
+                </div>
+            </div>  
+            <div class = "four-meal-detail" id="four-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Omelette</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">In cuisine, an omelette is a dish made from beaten eggs, fried with butter or oil in a frying pan. It is quite common for the omelette to be folded around fillings such as chives, vegetables, mushrooms, meat, cheese, onions or some combination of the above. 
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>3 eggs, beaten
+                            <br>1 tsp sunflower oil
+                            <br>1 tsp butter
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Beat the eggs: Use two or three eggs per omelette, depending on how hungry you are. Beat the eggs lightly with a fork.
+                            2. Melt the butter: Use an 8-inch nonstick skillet for a 2-egg omelette, a 9-inch skillet for 3 eggs. Melt the butter over medium-low heat, and keep the temperature low and slow when cooking the eggs so the bottom doesn’t get too brown or overcooked.
+                            3. Add the eggs: Let the eggs sit for a minute, then use a heatproof silicone spatula to gently lift the cooked eggs from the edges of the pan. Tilt the pan to allow the uncooked eggs to flow to the edge of the pan.
+                            4. Fill the omelette: Add the filling—but don’t overstuff the omelette—when the eggs begin to set. Cook for a few more seconds
+                            5. Fold and serve: Fold the omelette in half. Slide it onto a plate with the help of a silicone spatula.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Omelette.webp" alt = "">
+                      </div>
+                      
+                </div>
+            </div>  
+            <div class = "five-meal-detail" id="five-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Pizza</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Hot, cheesy pizza loaded with your favorite veggies is one of the most fun and easy dinners to make at home. With just a few key tips you can create a restaurant-quality crust, and treat yourself to the best homemade pizza that’s completely customizable to your tastes.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>You could use a 1:1 proportion of whole wheat flour and all-purpose flour to make the pizza crust.
+                            <BR>Feel free to add your choice of veggies. While onions and bell peppers (capsicum), tomato, can be used raw, you will need to roast, steam, boil or sauté other veggies like sweet corn, potato, spinach, zucchini, eggplants accordingly. 
+                            <br>If including a lot of mushrooms, sauté them in some olive oil until light golden before topping them on the pizza.
+                            <br>For a vegan option, opt to use a plant-based non-dairy cheese.
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a concise summary of how to make a classic homemade pizza:
+
+                            <br>1. **Ingredients**:
+                               <br>- **For the Dough**: Flour, yeast, salt, sugar, warm water, and olive oil.
+                               <br>- **For the Sauce**: Tomato sauce, garlic, olive oil, oregano, salt, and pepper.
+                               <br>- **For the Toppings**: Mozzarella cheese, your choice of toppings (e.g., pepperoni, vegetables, olives, etc.), and fresh basil.
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Dough**: Mix flour, yeast, salt, sugar, warm water, and olive oil to form a dough. Knead until smooth, then let it rise for about 1-2 hours.
+                               <br>- **Sauce**: Sauté garlic in olive oil, add tomato sauce, and season with oregano, salt, and pepper. Simmer for 10-15 minutes.
+                            
+                            <br>3. **Assembly**:
+                               <br>- Roll out the dough into a circle on a floured surface.
+                               <br>- Spread the tomato sauce evenly over the dough.
+                               <br>- Add mozzarella cheese and your choice of toppings.
+                            
+                            <br>4. **Baking**:
+                               <br>- Preheat the oven to 220°C (425°F).
+                               <br>- Bake the pizza for 12-15 minutes or until the crust is golden and the cheese is bubbly.
+                            
+                            <br>5. **Serving**:
+                               <br>- Garnish with fresh basil and serve hot.
+                            
+                            <br>Enjoy your delicious homemade pizza!
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Pizza.jpeg" alt = "">
+                      </div>
+                      
+                </div>
+            </div> 
+            <div class = "six-meal-detail" id="six-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Samosas</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Flaky and crunchy fried Samosa are one of the most popular street food snack in North Indian cuisine. They feature a pastry-like crust but are filled with savory and spiced potato and green peas for a hearty, delicious snack.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>½ inch cinnamon stick
+                            <br>1 clove, optional
+                            <br>1 green cardamom
+                            <br>3 black peppercorns
+                            <br>½ teaspoon cumin seeds
+                            <br>½ teaspoon fennel seeds
+                            <br>2 teaspoons coriander seeds
+                            <br>potatoes
+                            <br>flour
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a brief summary of how to make delicious samosas:
+
+                            <br>1. **Ingredients**:
+                               <br>- **For the Dough**: All-purpose flour, salt, water, and oil.
+                               <br>- **For the Filling**: Potatoes, peas, spices (cumin seeds, coriander powder, garam masala, turmeric, and chili powder), ginger, green chili, and salt.
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Dough**: Mix the flour, salt, and oil. Gradually add water to form a stiff dough. Let it rest for 30 minutes.
+                               <br>- **Filling**: Boil, peel, and mash the potatoes. Sauté cumin seeds, ginger, and green chili in oil. Add peas and mashed potatoes along with the spices. Cook until well mixed and aromatic.
+                            
+                            <br>3. **Assembling**:
+                               <br>- Divide the dough into small balls and roll each into a circle. Cut each circle in half.
+                               <br>- Form a cone with each half, filling it with the potato mixture. Seal the edges with water.
+                            
+                            <br>4. **Frying**:
+                               <br>- Heat oil in a deep pan. Fry the samosas on medium heat until golden brown and crisp.
+                            
+                            <br>5. **Serving**:
+                               <br>- Serve hot with mint chutney or tamarind sauce.
+                            
+                            <br>Enjoy your crispy and flavorful samosas!
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/samosas.jpeg" alt = "">
+                      </div>
+                     
+                </div>
+            </div> 
+            <div class = "seven-meal-detail" id="seven-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Dal Makhani</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">There are some dishes that represent Punjabi cuisine, like none other. Dal Makhani is one of them. It is one of the most popular lentil recipes from North Indian Punjabi cuisine and is made with whole black lentils (urad dal or kali dal in Hindi) and kidney beans (rajma in Hindi). This Dal Makhani Recipe is a restaurant style version with subtle smoky flavors and creaminess of the lentils. If you are a fan of North Indian food and those lovely Punjabi flavors in your food, then you are going to love this makhani dal even more.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>½ teaspoon cumin seeds
+                            <br>2 to 3 cloves
+                            <br>2 to 3 green cardamoms
+                            <br>1 black cardamom
+                            <br>1 inch cinnamon
+                            <br>1 small to medium tej patta (Indian bay leaf)
+                            <br>1 butter
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a quick summary of making Dal Makhani, a rich and creamy Indian lentil dish:
+
+                            <br>1. **Ingredients**:
+                               <br>- Whole black lentils (urad dal), red kidney beans (rajma)
+                               <br>- Butter, cream
+                               <br>- Tomatoes, onions, garlic, ginger
+                               <br>- Spices (cumin seeds, bay leaf, garam masala, coriander powder, turmeric, red chili powder)
+                               <br>- Salt
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Soak and Cook Lentils**: Soak the lentils and kidney beans overnight, then pressure cook until soft.
+                               <Br>- **Tomato Puree**: Blend tomatoes to make a smooth puree.
+                            
+                            <br>3. **Cooking**:
+                               <br>- **Base**: Sauté cumin seeds, bay leaf, onions, garlic, and ginger in butter until golden.
+                               <br>- **Add Spices**: Add turmeric, red chili powder, coriander powder, and garam masala. Cook briefly.
+                               <br>- **Tomato Puree**: Add the tomato puree and cook until the oil separates from the mixture.
+                               <br>- **Mix in Lentils**: Add the cooked lentils and kidney beans to the mixture. Simmer on low heat, adding water as needed.
+                               <br>- **Creaminess**: Stir in cream and more butter to achieve a rich consistency. Simmer until well blended and thick.
+                            
+                            <br>4. **Serving**:
+                               <br>- Garnish with additional cream and a sprinkle of garam masala. Serve hot with naan, roti, or rice.
+                            
+                            <br>Enjoy your delicious and hearty Dal Makhani!
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/dal makhani.jpeg" alt = "">
+                      </div>
+                     
+                </div>
+            </div> 
+            <div class = "eight-meal-detail" id="eight-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Chicken Burger</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Prepare the buns! For the ideal stuffing for juicy burgers, coat or marinate chicken thighs and breast. Dig it after adding toppings like slaw and sauce along with your selected side dishes.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>3 boneless chicken breasts (around half a kg)
+                            <br>1 tspn of pepper
+                            <br>1 tspn of salt
+                            <br>2 tblspns of worcestershire sauce
+                            <br>1 tspn of Mustard powder or all spice powder
+                            <br>2 tblspns of Flour
+                            <br>1 Egg
+                            <br>1 1/2 cups of Breadcrumbs
+                            <br>Soft seeded burger buns
+                            <br>Mayonnaise or KFC Zinger Sauce
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. If your chicken breasts are too big, slice them before cooking. Then, marinade the chicken breasts in the Worcestershire sauce, pepper, salt, mustard, or all-spice powder. Leave the chicken for at least four hours or over night.
+                            <br>2. An egg and two tablespoons of water should be beaten together to make the batter, which should then be set aside.
+                            <br>3. Chicken breasts that have been marinated should be heavily dusted in flour. They should be well coated after being dipped in both the egg and the breadcrumbs.
+                            <br>4. The coated chicken breasts should be deep-fried in heated oil over a medium-high heat until they are crisp and golden brown.
+                            <br>5. The finished burger should be stacked with the lettuce on top, followed by the chicken, and then the mayonnaise or KFC zinger sauce. The buns should be cut in half and lightly toasted. If you'd like a cheesy kick, add some sliced American cheese.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Burger.webp" alt = "">
+                      </div>
+                      
+                </div>
+            </div> 
+            <div class = "nine-meal-detail" id="nine-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Rajma</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">This rajma recipe follows the traditional (and the most common method) of making the kidney bean curry. So long as you follow the recipe, there’s no chance anything will go wrong with this simple and delectable dish.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>2 tablespoons Butter + 1 tablespoon oil or 3 tablespoons butter
+                            <br>▢½ teaspoon cumin seeds
+                            
+                           <br>▢¾ to 1 cup onions – finely chopped, 150 grams or 1 large onion
+                            <br>▢1 cup tomatoes – finely chopped, 250 grams or 3 medium or 2 large tomatoes
+                            <br>▢1 teaspoon Coriander Powder (ground coriander)
+                            <br>▢¼ to ½ teaspoon red chili powder or cayenne pepper or hot paprika
+                            <br>▢¼ teaspoon turmeric powder (ground turmeric)
+                            <br>▢1 pinch asafoetida (hing) – optional
+                            <br>▢¼ to ½ teaspoon Garam Masala
+                            <br>▢1.5 to 2 cups water
+                            <br>▢salt as required
+                            <br>▢1 teaspoon kasuri methi – crushed, (dried fenugreek leaves) – optional
+                            <br>▢2 to 3 tablespoons low fat cream or half and half or 1 tablespoon heavy whipping cream – optional
+                            ▢1 to 2 tablespoons chopped coriander leaves – for garnish, optional
+                            
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a quick summary of making Rajma, a popular North Indian dish made with kidney beans:
+
+                            <br>1. **Ingredients**:
+                               <br>- Kidney beans (rajma)
+                               <br>- Onions, tomatoes, garlic, ginger
+                               <br>- Spices (cumin seeds, coriander powder, garam masala, turmeric, red chili powder)
+                               <br>- Salt
+                               <br>- Butter or ghee
+                               <br>- Fresh cilantro for garnish
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Soak and Cook Beans**: Soak the kidney beans overnight, then pressure cook until soft.
+                               <br>- **Tomato Puree**: Blend tomatoes to make a smooth puree.
+                            
+                            <br>3. **Cooking**:
+                               <br>- **Base**: Heat butter or ghee in a pan, add cumin seeds, and sauté chopped onions, garlic, and ginger until golden.
+                               <br>- **Add Spices**: Add turmeric, red chili powder, coriander powder, and garam masala. Cook briefly.
+                               <br>- **Tomato Puree**: Add the tomato puree and cook until the oil separates from the mixture.
+                               <br>- **Mix in Beans**: Add the cooked kidney beans to the mixture, along with some of the cooking liquid. Simmer on low heat to let the flavors meld.
+                            
+                            <br>4. **Finishing Touch**:
+                               <br>- Adjust salt and spices to taste.
+                               <br>- Garnish with fresh cilantro before serving.
+                            
+                            <br>5. **Serving**:
+                               <br>- Serve hot with steamed rice or naan.
+                            
+                            <br>Enjoy your hearty and flavorful Rajma!
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/rajma" alt = "">
+                      </div>
+                     
+                </div>
+            </div> 
+            <div class = "ten-meal-detail" id="ten-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Pasta</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Pasta recipe includes a spicy homemade tomato sauce made with red chili pepper flakes, fragrant garlic and fresh basil. This zesty sauce is tossed with tender fusilli pasta for an easy and satisfying dinner that’s ready in just 30 minutes. Top with grated parmesan cheese for the perfect garnish!
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>2 cups chopped tomatoes – 220 grams or 2 large tomatoes or 2 cups chopped tomatoes or 1 cup tomato purée
+                            <br>▢1 teaspoon finely chopped garlic – 5 grams
+                            <br>▢2 teaspoons chilli flakes or add as required, swap with ½ to 1 teaspoon red chilli powder or cayenne
+                            <br>▢2 tablespoons olive oil
+                            <br>▢¼ teaspoon dried oregano or add as required
+                            <br>▢1 tablespoon chopped basil leaves or 3 to 4 basil leaves or 1 teaspoon dried basil
+                            <br>▢¼ teaspoon black pepper powder or add as required
+                            <br>▢¼ teaspoon sugar – optional
+                            <br>▢¼ cup water – optional
+                            <br>▢2 to 3 tablespoons parmesan cheese (vegetarian) or choice of cheese – optional
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>Here's a concise summary for making a basic pasta dish:
+
+                            <br>1. **Ingredients**:
+                               <br>- Pasta (your choice of type)
+                               <br>- Olive oil or butter
+                               <br>- Garlic, chopped
+                               <br>- Tomatoes or tomato sauce
+                               <br>- Salt and pepper
+                               <br>- Fresh basil or Italian herbs
+                               <br>- Parmesan cheese
+                            
+                            <br>2. **Preparation**:
+                               <br>- **Cook Pasta**: Boil pasta in salted water according to package instructions until al dente. Drain and set aside.
+                            
+                            <br>3. **Making the Sauce**:
+                               <br>- Heat olive oil or butter in a pan, and sauté chopped garlic until fragrant.
+                               <br>- Add tomatoes or tomato sauce and cook until the sauce thickens.
+                               <br>- Season with salt, pepper, and Italian herbs.
+                            
+                            <br>4. **Combining**:
+                               <br>- Toss the cooked pasta in the sauce, ensuring it's well coated.
+                            
+                            <br>5. **Serving**:
+                               <br>- Garnish with fresh basil and grated Parmesan cheese.
+                               <br>- Serve hot.
+                            
+                            <br>Enjoy your delicious homemade pasta!
+                            
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/pasta.jpg" alt = "">
+                      </div>
+                      
+                </div>
+            </div> 
+            <div class = "eleven-meal-detail" id="four-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Potato Egg Skillet</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">In cuisine, an omelette is a dish made from beaten eggs, fried with butter or oil in a frying pan. It is quite common for the omelette to be folded around fillings such as chives, vegetables, mushrooms, meat, cheese, onions or some combination of the above. 
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>8 strips raw bacon
+                            <br>1 lbs Yukon gold potatoes, diced into bite sized pieces
+                            <br>1 small yellow onion, diced
+                            <br>½ red bell pepper, diced
+                            <br>½ green bell pepper, diced
+                            <br>3 cloves garlic, minced
+                            <br>1 teaspoon cumin
+                            <br>¼ teaspoon chili powder
+                            <br>¼ teaspoon paprika
+                            <br>½ teaspoon black pepper
+                            <br>½ teaspoon coarse salt
+                            <br>4 eggs
+                            <br>¼ cup mozzarella cheese, grated
+                            <br>¼ cup cheddar cheese, grated
+                            <br>Extra virgin olive oil for extra drizzling
+                            <br>Fresh cilantro roughly chopped, thinly sliced chives for garnish
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Preheat oven to 400˚F. Place strips of bacon in a large (at least 10 inch), oven safe skillet. Cook over medium low heat on both sides until cooked through but not yet crispy, about 10 minutes. Remove from heat to a paper towel lined plate and set aside, leaving the bacon grease in the pan. When the bacon is cool enough to handle, roughly dice.
+                            <br>Increase the heat to medium high, add the potatoes, bell pepper, and onion and cook for 7- 8 minutes, stirring frequently, until starting to soften and can be pierced with a fork
+                            <br>Add garlic, cumin, chili powder, paprika, black pepper, and salt. Cook for 1-2 minutes, until garlic is fragrant.
+                            <br>Using a spoon, create 4 to 6 holes (depending on how many eggs you want) in the hash mixture for the eggs. Distribute the cheeses evenly into each hole, and then crack one egg into each hole.
+                            <br>Place in the preheat oven and cook for 8-10 minutes, until egg white is set but the yolk is still runny.
+                            <br>Remove from heat. Sprinkle with cooked bacon. Garnish with fresh ground black pepper, cilantro and chives.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Potato-Breakfast-Skillet.webp " alt = "">
+                      </div>
+                     
+                </div>
+            </div> 
+            
+            
+        </div>
+            <!--Ending of Recipe Details-->
+
+            <!--Footer-->
+    <div class="footer">
+        <div class="social-btn">
+            <a href="" target="_blank" ><i class="	fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/atharva.singh_/profilecard/?igsh=MTg2Z3JpbDQ2d2k0OA==" target="_blank" ><i class="	fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/atharva-singh-12562b327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="	fab fa-linkedin"></i></a>
+            <a href="https://github.com/atharva169" target="_blank" "><i class="	fab fa-github"></i></a>
+        </div>
+            <div class="quick-bar">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        <p>Created by : Atharva Singh</p>  
+    </div>
+
+    <!--Ending of Footer-->
+
+<!--Script for Javascript-->
+<script src="./assets/index.js"></script>
+</body>
+</html>
